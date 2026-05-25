@@ -10,6 +10,16 @@ export const gradesview = {
         title.textContent = "Grader 3000";
         this.view.appendChild(title);
 
+        const paragraph = document.createElement("p");
+        paragraph.textContent = "Das hier ist das neue Programm zur Bestimmung der Schulnoten.\n" +
+            "Die Gesamtnote ergibt sich aus deinen Übungen und deiner Klausur.\n" +
+            "Die Klausur macht 40% deiner Note aus und deine Übungen 60%,\n" +
+            "wobei das schlechteste Übungsergebnis aus der Wertung gestrichen wird.\n" +
+            "Es müssen aber beide Gebiete positiv, also mit >50%, abgeschlossen werden,\n" +
+            "um das Semester positiv abschließen zu können. Außerdem benötigst duch auch\n" +
+            "eine Anwesenheitsrate von mindestens 80%, ansonsten bestehst du das Semster nicht!";
+        this.view.appendChild(paragraph);
+
         const tasksContainer = document.createElement("div");
         tasksContainer.id = "tasks";
         const testContainer = document.createElement("div");
