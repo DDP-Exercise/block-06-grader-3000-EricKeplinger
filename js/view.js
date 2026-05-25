@@ -78,7 +78,7 @@ export const gradesview = {
 
     showResult(finalGrade){
         const result = document.getElementById("result");
-        result.textContent = `Gesamtnote: ${Math.round(finalGrade)} %`;
+        result.textContent = `Gesamtnote: ${finalGrade.toFixed(2)} %`;
     }
 
 
