@@ -1,5 +1,9 @@
 "use strict";
 
+import {gradescontroller} from "./controller.js";
+
+gradescontroller.init();
+
 export const gradesmodel = {
     taskgrades: [0,0,0,0,0,0,0,0],
     testgrade: 0,
