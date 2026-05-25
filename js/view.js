@@ -1,3 +1,5 @@
-"use strict"
+"use strict";
 
-export
+export const gradesview = {
+
+}
