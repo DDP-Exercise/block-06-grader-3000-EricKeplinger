@@ -109,6 +109,20 @@ export const gradesview = {
     showWorstGrade(worstGrade, worstTask){
         const remove = document.getElementById("worstGrade");
         remove.textContent = `Streichergebnis: Übung ${worstGrade + 1} mit ${worstTask} Punkte`;
+    },
+
+    highlightWorstGrade(worstField){
+        const taskField = document.querySelectorAll('input[name="task"]');
+
+        for(let i = 0; i < taskField.length; i++){
+            taskField[i].classList.remove("worst-grade");
+        }
+
+        const worstInput = document.querySelector(`input[name="task"][data-index="${worstField}"]`);
+
+        if(worstInput){
+            worstInput.classList.add("worst-grade");
+        }
     }
 
 

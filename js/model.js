@@ -79,13 +79,11 @@ export const gradesmodel = {
     getfinalGrade(){
         const taskgrade = this.getfinalTaskGrade();
         const finalGrade = (taskgrade * 0.6) + (this.testgrade * 0.4);
-        const failed = 0;
+        const attendanceFail = 0;
 
         if(this.attendance >= 80 && this.isGradePositive(this.testgrade) && this.isGradePositive(taskgrade)){
             return finalGrade;
-        } else {
-            return failed;
-        }
+        } 
 
     }
 
