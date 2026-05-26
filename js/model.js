@@ -41,6 +41,18 @@ export const gradesmodel = {
       return worstGrade;
     },
 
+    getWorstTask(){
+        let worstGrade = 0;
+
+        for(let i = 1; i < this.taskgrades.length; i++){
+            if(this.taskgrades[worstGrade] > this.taskgrades[i]){
+                worstGrade = i;
+            }
+        }
+
+        return this.taskgrades[worstGrade];
+    },
+
     getfinalTaskGrade(){
         const worstGrade = this.getWorstGrade();
         let counter = 0;

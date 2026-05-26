@@ -106,9 +106,9 @@ export const gradesview = {
         }
     },
 
-    showWorstGrade(worstGrade){
+    showWorstGrade(worstGrade, worstTask){
         const remove = document.getElementById("worstGrade");
-        remove.textContent = `Streichergebnis: Übung ${worstGrade + 1} `;
+        remove.textContent = `Streichergebnis: Übung ${worstGrade + 1} mit ${worstTask} Punkte`;
     }
 
 
