@@ -92,8 +92,8 @@ export const gradesmodel = {
     getResultReason(){
         const taskgrade = this.getfinalTaskGrade();
         const attendanceFail = "Du hast die erforderlichen 80% Anwesenheit nicht erreicht";
-        const taskFail = "Es sind leider mehr als 2 Übungen negativ";
-        const testFail = "Leider war deine Klausur negativ";
+        const taskFail = "Leider war deine Übungsnote negativ";
+        const testFail = "Leider war deine Klausurnote negativ";
         const pass = "";
 
         if(this.attendance < 80){
