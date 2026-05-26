@@ -12,7 +12,17 @@ export const gradescontroller = {
     registerEvents(){
         gradesview.view.addEventListener('change', (event) => {
             const input = event.target;
-            const points = Number(input.value);
+            let points = Number(input.value);
+
+            if(points < 0){
+                points = 0;
+            }
+
+            if(points > 100){
+                points = 100;
+            }
+
+            input.value = points;
 
             if(input.name === "task"){
                 const index = Number(input.dataset.index)
