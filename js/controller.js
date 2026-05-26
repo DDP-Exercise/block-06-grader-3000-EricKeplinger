@@ -1,0 +1,54 @@
+"use strict";
+
+import {gradesmodel} from "./model.js";
+import {gradesview} from "./view.js";
+
+export const gradescontroller = {
+    init(){
+        gradesview.render();
+        this.registerEvents();
+    },
+
+    registerEvents(){
+        gradesview.view.addEventListener('change', (event) => {
+            const input = event.target;
+            let points = Number(input.value);
+
+            if(points < 0){
+                points = 0;
+            }
+
+            if(points > 100){
+                points = 100;
+            }
+
+            input.value = points;
+
+            if(input.name === "task"){
+                const index = Number(input.dataset.index)
+                gradesmodel.setTaskGrade(index, points);
+            }
+
+            if(input.name === "testgrade"){
+                gradesmodel.setTestGrade(points);
+            }
+
+            if(input.name === "attendance"){
+                gradesmodel.setAttendance(points);
+            }
+
+            const worstGrade = gradesmodel.getWorstGrade();
+            const worstTask = gradesmodel.getWorstTask();
+            const worstField = gradesmodel.getWorstGrade();
+            const resultReason = gradesmodel.getResultReason();
+            gradesview.showWorstGrade(worstGrade, worstTask);
+            gradesview.highlightWorstGrade(worstField);
+            gradesview.showResultReason(resultReason);
+
+            const finalGrade = gradesmodel.getfinalGrade();
+            gradesview.showResult(finalGrade);
+
+        });
+    },
+
+}
