@@ -15,6 +15,7 @@ export const gradesview = {
             "Die Gesamtnote ergibt sich aus deinen Übungen und deiner Klausur.\n" +
             "Die Klausur macht 40% deiner Note aus und deine Übungen 60%,\n" +
             "wobei das schlechteste Übungsergebnis aus der Wertung gestrichen wird.\n" +
+            "Und es dürfen nicht mehr als 2 der 8 Übungen negativ ausfallen.\n" +
             "Es müssen aber beide Gebiete positiv, also mit >50%, abgeschlossen werden,\n" +
             "um das Semester positiv abschließen zu können. Außerdem benötigst duch auch\n" +
             "eine Anwesenheitsrate von mindestens 80%, ansonsten bestehst du das Semster nicht!";
