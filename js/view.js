@@ -30,6 +30,8 @@ export const gradesview = {
         worstGradeContainer.id = "worstGrade";
         const resultContainer = document.createElement("div");
         resultContainer.id = "result";
+        const reasonContainer = document.createElement("div");
+        reasonContainer.id = "reason";
 
         for(let i = 0; i < 8; i++){
             const taskField = this.getPointsField(`Übung ${i + 1}`, 0, "task", i);
@@ -46,11 +48,14 @@ export const gradesview = {
 
         resultContainer.textContent = "Gesamtnote: 0";
 
+        reasonContainer.textContent = "Grund: ";
+
         this.view.appendChild(tasksContainer);
         this.view.appendChild(testContainer);
         this.view.appendChild(attendanceContainer);
         this.view.appendChild(worstGradeContainer);
         this.view.appendChild(resultContainer);
+        this.view.appendChild(reasonContainer);
     },
 
     getPointsField(labelText, value, name, index){
@@ -104,6 +109,13 @@ export const gradesview = {
         } else if (finalGrade > 86 && finalGrade <= 100){
             result.textContent = `Gesamtnote: ${finalGrade.toFixed(2)} % Sehr Gut`;
         }
+    },
+
+    showResultReason(resultReason){
+        const reason = document.getElementById("reason");
+        reason.textContent = "Grund: " + resultReason;
+
+
     },
 
     showWorstGrade(worstGrade, worstTask){

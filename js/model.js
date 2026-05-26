@@ -79,12 +79,32 @@ export const gradesmodel = {
     getfinalGrade(){
         const taskgrade = this.getfinalTaskGrade();
         const finalGrade = (taskgrade * 0.6) + (this.testgrade * 0.4);
-        const attendanceFail = 0;
+        const failed = 0;
 
         if(this.attendance >= 80 && this.isGradePositive(this.testgrade) && this.isGradePositive(taskgrade)){
             return finalGrade;
-        } 
+        } else {
+            return failed;
+        }
 
+    },
+
+    getResultReason(){
+        const taskgrade = this.getfinalTaskGrade();
+        const attendanceFail = "Du hast die erforderlichen 80% Anwesenheit nicht erreicht";
+        const taskFail = "Es sind leider mehr als 2 Übungen negativ";
+        const testFail = "Leider war deine Klausur negativ";
+        const pass = "";
+
+        if(this.attendance < 80){
+            return attendanceFail;
+        } else if(this.isGradePositive(this.testgrade) === false){
+            return testFail;
+        } else if(this.isGradePositive(taskgrade) === false){
+            return taskFail;
+        } else{
+            return pass;
+        }
     }
 
 }

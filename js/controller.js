@@ -30,8 +30,10 @@ export const gradescontroller = {
             const worstGrade = gradesmodel.getWorstGrade();
             const worstTask = gradesmodel.getWorstTask();
             const worstField = gradesmodel.getWorstGrade();
+            const resultReason = gradesmodel.getResultReason();
             gradesview.showWorstGrade(worstGrade, worstTask);
             gradesview.highlightWorstGrade(worstField);
+            gradesview.showResultReason(resultReason);
 
             const finalGrade = gradesmodel.getfinalGrade();
             gradesview.showResult(finalGrade);
