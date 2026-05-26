@@ -27,6 +27,9 @@ export const gradescontroller = {
                 gradesmodel.setAttendance(points);
             }
 
+            const worstGrade = gradesmodel.getWorstGrade();
+            gradesview.showWorstGrade(worstGrade);
+
             const finalGrade = gradesmodel.getfinalGrade();
             gradesview.showResult(finalGrade);
 

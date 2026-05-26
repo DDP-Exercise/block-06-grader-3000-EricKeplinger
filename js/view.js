@@ -26,6 +26,8 @@ export const gradesview = {
         testContainer.id = "test";
         const attendanceContainer = document.createElement("div");
         attendanceContainer.id = "attendance";
+        const worstGradeContainer = document.createElement("div");
+        worstGradeContainer.id = "worstGrade";
         const resultContainer = document.createElement("div");
         resultContainer.id = "result";
 
@@ -40,11 +42,14 @@ export const gradesview = {
         const attendanceField = this.getAttendanceField("Anwesenheitsrate", 0, "attendance");
         attendanceContainer.appendChild(attendanceField);
 
+        worstGradeContainer.textContent = "Streichergebnis: Übung ";
+
         resultContainer.textContent = "Gesamtnote: 0";
 
         this.view.appendChild(tasksContainer);
         this.view.appendChild(testContainer);
         this.view.appendChild(attendanceContainer);
+        this.view.appendChild(worstGradeContainer);
         this.view.appendChild(resultContainer);
     },
 
@@ -88,7 +93,22 @@ export const gradesview = {
 
     showResult(finalGrade){
         const result = document.getElementById("result");
-        result.textContent = `Gesamtnote: ${finalGrade.toFixed(2)} %`;
+        if (finalGrade >= 0 && finalGrade <= 50){
+            result.textContent = `Gesamtnote: ${finalGrade.toFixed(2)} % Nicht Genügend`;
+        } else if (finalGrade > 50 && finalGrade <= 61){
+            result.textContent = `Gesamtnote: ${finalGrade.toFixed(2)} % Genügend`;
+        } else if (finalGrade > 61 && finalGrade <= 74){
+            result.textContent = `Gesamtnote: ${finalGrade.toFixed(2)} % Befriedigend`;
+        } else if (finalGrade > 74 && finalGrade <= 86){
+            result.textContent = `Gesamtnote: ${finalGrade.toFixed(2)} % Gut`;
+        } else if (finalGrade > 86 && finalGrade <= 100){
+            result.textContent = `Gesamtnote: ${finalGrade.toFixed(2)} % Sehr Gut`;
+        }
+    },
+
+    showWorstGrade(worstGrade){
+        const remove = document.getElementById("worstGrade");
+        remove.textContent = `Streichergebnis: Übung ${worstGrade + 1} `;
     }
 
 
